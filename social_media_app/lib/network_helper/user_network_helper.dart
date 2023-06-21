@@ -189,14 +189,12 @@ class UserNetworkHelper {
     if (response.statusCode == 200) {
       testOutput = json.decode(response.body)["success"];
 
-      // return User.fromJson(jsonDecode(response.body)["data"]).toString();
       return "success";
     } else if (jsonDecode(response.body)["message"]
-                .toString() == ///////////////////////////////
+                .toString() == 
             "cannot have same password for old and new" ||
         jsonDecode(response.body)["message"].toString() ==
             "old password is incorrect") {
-      print("HEHEHEHEHHE");
       return jsonDecode(response.body)["message"].toString();
     } else {
       print(jsonDecode(response.body)["message"].toString());
